@@ -1,0 +1,23 @@
+USUARIO
+id
+nome
+email
+jardim{id, nome}
+data_cadastro
+
+JARDIM
+id
+nome
+serial_ione
+sensores_umidade
+plantas{[id, nome]}
+grupo{id, umidade_min}
+analize{id, data_hora, clima, valor_umidade, status_solo, consumo_agua}
+data_cadastro
+
+PLANTAS
+id
+nome
+detalhes{[nome cientificio, temperatura, cuidados, grupo, umidade_minima, umidade_maxima]}
+
+
