@@ -10,14 +10,19 @@ id
 nome
 serial_ione
 sensores_umidade
-plantas{[id, nome]}
-grupo{id, umidade_min}
-analize{id, data_hora, clima, valor_umidade, status_solo, consumo_agua}
+plantas{id, nome}
 data_cadastro
 
 PLANTAS
 id
 nome
-detalhes{[nome cientificio, temperatura, cuidados, grupo, umidade_minima, umidade_maxima]}
+detalhes{nome cientificio, temperatura, cuidados, grupo, umidade_minima, umidade_maxima}
 
-
+ANALIZE
+id
+id_jardim
+data_hora
+clima
+valor_sensores
+status_solo
+consumo_agua

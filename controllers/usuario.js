@@ -42,8 +42,7 @@ module.exports = function(app){
 			var nome 	= req.body.nome,
 			sobrenome	= req.body.sobrenome,
 			email 		= req.body.email,
-			//criptografa senha a ser gravada no banco de dados
-			senha 		= bCrypt.hashSync(req.body. senha),
+			senha 		= bCrypt.hashSync(req.body. senha),//criptografa senha a ser gravada no banco de dados
 			novaConta 	= {nome, sobrenome, email, senha };
 			
 		//verifica email já possui conta cadastrada
@@ -62,12 +61,36 @@ module.exports = function(app){
 			if (err) {
 				console.log('erro ao gravar novo usuario '+err);
 			}else{
-				res.json(data);
+				res.redirect('/home');
 			}
 		});
 	}
 }
 });
+	},
+
+	//metodo - exibe página de detalhes da conta de usuário, *session
+	exibirConta: function(req, res){
+		if(!req.session.user || !req.session.user.nome || !req.session.user.id){ //session
+			res.redirect('/');
+		}else{
+			res.render('/exibirConta');
+		}
+	},
+
+	//metodo - alterar dados da conta do usuário
+	alterarConta: function(req, res){
+		var id 		= req.session.user.id,
+		nome 		= req.body.nome,
+		sobrenome 	= req.body.sobrenome;
+
+		Usuario.update({_id:id},{$set:{nome:nome, sobrenome:sobrenome}}, function(err, data){
+			if (err) {
+				console.log('alterarConta - erro ao atualizar '+err);
+			}else{
+				res.redirect('/home');
+			}
+		});
 	},
 
 	//metodo - enviar link por email para recuperar senha
@@ -132,7 +155,7 @@ module.exports = function(app){
 				if (data.length == 1) {
 					if (data[0].senha.substr(5,20) == key) {
 						Usuario.update({_id:id},{$set:{senha:senha}});
-						res.json(msgok)
+						res.redirect('/home');
 					}else{
 						console.log(msgerr+" redefinirEmail - substr de senha não confere");	
 						res.json(msgerr);
@@ -171,7 +194,7 @@ module.exports = function(app){
 						res.json(msgok)
 					}else{
 						console.log(msgerr+" redefinirEmail - substr de senha não confere");	
-						res.json(msgerr);
+						res.redirect('/home');
 					}
 				}else{
 					console.log(msgerr+" redefinirEmail - conta não encontrada por Id");
