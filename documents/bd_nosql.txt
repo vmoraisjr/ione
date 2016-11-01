@@ -1,28 +1,32 @@
 USUARIO
-id
+_id
 nome
 email
-jardim{id, nome}
 data_cadastro
+**jardim{nome}
 
 JARDIM
-id
+_id
 nome
 serial_ione
 sensores_umidade
-plantas{id, nome}
 data_cadastro
 
 PLANTAS
-id
+_id
 nome
 detalhes{nome cientificio, temperatura, cuidados, grupo, umidade_minima, umidade_maxima}
+**jardim{nome}
 
-ANALIZE
-id
-id_jardim
+ANALISE
+_id
+**jardim
 data_hora
 clima
 valor_sensores
 status_solo
 consumo_agua
+**jardim{nome}
+
+
+

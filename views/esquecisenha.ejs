@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>iOne Jardim Inteligente | Redefinir a senha</title>
+	<title>iOne Jardim Inteligente | Esqueci a senha</title>
 	<script type="text/javascript" src="/bootstrap/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="/js/script.js"></script>
@@ -31,32 +31,38 @@
 			</div>
 		</nav>
 
-		<div class="redefinir-senha content">
-			<h3>Redefinir Senha</h3>
-			<form method="post" action="/redefinirSenhaEmail">
+		<div class="recuperar-senha content">
+			<h3>Recuperar Senha</h3>
+			<form method="post" action="recuperarSenha">
 				<div class="row">
 					<div class="col-xs-12 col-md-4 espaco"></div>
 					<div class="col-xs-12 col-md-4 espaco">
 						<dir class="form-group">
-							<label>Nova Senha</label>
-							<input type="password" name="senha" class="form-control" required="">
+							<label>E-mail</label>
+							<input type="email" name="email" class="form-control" required="">
 						</dir>
 						<dir class="form-group">
-							<label>Redigite a Senha</label>
-							<input type="password" name="senha2" class="form-control" required="">
-						</dir>
-						<dir class="form-group">
-							<input type="hidden" name="key" class="form-control" value="<%- key %>">
-							<input type="hidden" name="id" class="form-control" value="<%- id %>">
-							<input type="submit" name="enviar" class="btn btn-success" value="Redefinir">
+							<input type="submit" name="enviar" class="btn btn-success" value="Enviar">
 							<a href="/" name="voltar" class="btn btn-default">Voltar</a>
 						</dir>
+						<dir class="form-group">
+							<%if(alert){%>
+								<%if(send){%>
+									<div class="alert alert-dismissible alert-info">
+								<%}else{%>
+									<div class="alert alert-dismissible alert-warning">
+								<%}%>
+									<button type="button" class="close" data-dismiss="alert">&times;</button>
+									<p><%- msg %></p>
+								</div>
+								<%}%>
+							</dir>
+						</div>
+						<div class="col-xs-12 col-md-4 espaco"></div>
 					</div>
-					<div class="col-xs-12 col-md-4 espaco"></div>
-				</div>
-			</form>
-		</div>
+				</form>
+			</div>
 
-	</div>
-</body>
-</html>
+		</div>
+	</body>
+	</html>

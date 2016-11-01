@@ -1,329 +1,147 @@
-<!doctype html>
-<html lang="pt">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>
-            ione Jardim Inteligente
-        </title>
-        <!-- Bootstrap -->
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js">
-                
-        </script>
-        <script src="js/appController.js">
-        </script>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>iOne Jardim Inteligente | Index</title>
+	<script type="text/javascript" src="/bootstrap/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/js/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/fonts.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/">iOne Jardim Inteligente</a>
+				</div>
 
-    </head>
-    
-    <body ng-app="app" class="color_fundo">
-        <div ng-controller="paginaPrincipalController">
-            <nav class="navbar navbar-default bar_ajuste">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">
-                                Toggle navigation
-                            </span>
-                            <span class="icon-bar">
-                            </span>
-                            <span class="icon-bar">
-                            </span>
-                            <span class="icon-bar">
-                            </span>
-                        </button>
-                        <a class="navbar-brand ajuste_icone"><img src="img/icone.png" alt="Dispute Bills">
-        </a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right nav_dir">
-                            <div class="navbar-form">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Email" ng-model="formData.emailLogin">
-                                    <input type="password" class="form-control" placeholder="Senha" ng-model="formData.senhaLogin">
-                                </div>
-                                <button type="submit" class="btn btn-default" ng-click="login()">
-                                    Login
-                                </button>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <div class="col-sm-12" id="inicio">
-                <section id="principal">
-                    <div class="col-sm-6">
-                        <div class="papers text-center">
-                            <img src="img/animacao.jpg" alt="">
-                            <br/>
-                            <a href="#"><b>Download my resume</b></a>
-                            <h4 class="notopmarg nobotmarg">
-                                John Vandeley
-                            </h4>
-                            <p>
-                                Have you ever felt worried that your party will not raise up to your guest
-                                expectations? In design, vertical rhythm is the structure that guides a
-                                reader's eye through the content. Good vertical rhythm makes a layout more
-                                balanced and beautiful and its content more readable. The time signature
-                                in sheet music visually depicts a song's rhythm, while for us, the lines
-                                of the baseline grid depict the rhythm of our content and give us guidelines.
-                            </p>
-                        </div>
-                    </div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#projeto">Projeto</a></li>
+						<li><a href="#tecnologias">Tecnologias</a></li>
+						<li><a href="#cadastro">Cadastro</a></li>
+						<li><a href="#parceiro">Parceria</a></li>
+						<li><a href="/login">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
+		<div id="projeto ">
+			
+		</div>
+		<% if(alert){ %>
+		<div class="alert alert-dismissible alert-warning">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<h5><%- msg %></h5>
+			<a href="/esqueceuSenha" class="alert-link"><h6>Recupere sua senha</h6></a>
+		</div>
+		<%}%>
 
-                    <div class="col-sm-6">
-                        <!-- multistep form -->
-                        <form id="msform" name="FormUsuarioJardim" ng-submit="gravaDadosUsuario()" data-toggle="validator" role="form">
-                            <!-- progressbar -->
-                            <ul id="progressbar">
-                                <li class="active">
-                                    Usuario
-                                </li>
-                                <li>
-                                    Jardim
-                                </li>
-                                <li>
-                                    Plantas
-                                </li>
-                                <li>
-                                    Sensores
-                                </li>
-                                <li>
-                                    Valvulas
-                                </li>
-                            </ul>
-                            <!-- fieldsets -->
+		<div class="logo">
+			<img src="images/logo-ione.png" class="img-responsive center-block" id="logo">
+		</div>
 
+		<div class="projeto content">
+			<h1>iOne Jardim Inteligente</h1>
+			<h3>Conheça as vantagens de ter iOne em seu jardim.</h3>
+			<div class="row">
+				<div class="col-xs-12 col-md-4 espaco">
+					<h4>Monitoramento</h4>
+					<p> Sensores dispostos pelo jardim monitoram o nível de umidade do solo e enviam para o servidor na núvem para que sejam armazenados e auxiliem na tomada de decisão do melhor momento para efetuar a irrigação automática, levando em conta o clima local.</p>
+				</div>
+				<div class="col-xs-12 col-md-4 espaco">
+					<h4>Acompanhamento</h4>
+					<p>Acesse o status e relatorios de umidade e consumo de água do seu jardim no computador ou dispositivo mobile através do serviço web. </p>
+				</div>
+				<div class="col-xs-12 col-md-4 espaco">
+					<h4>Controle</h4>
+					<p>Com iOne você poderá acompanhar de perto a qualidade do solo de seu jardim e controlar o consumo de água, mantendo a saúde de suas plantas em boas condições e evitando o desperdício.</p>
+				</div>
+			</div>
+		</div>
 
-                            <fieldset>
-                                <h2 class="fs-title">
-                                    Crie sua Conta
-                                </h2>
-                                <br />
+		<div class="tecnologias content" id="tecnologias">
+			<h3>Tecnologias utilizadas no desenvolvimento</h3>
+			<div class="row">
+				<div class="col-xs-6 col-md-2 espaco">
+					<img class="img-responsive center-block" src="/images/icone-arduino.png">
+				</div>
+				<div class="col-xs-6 col-md-2 espaco">
+					<img class="img-responsive center-block" src="/images/icone-nodejs.png">
+				</div>
+				<div class="col-xs-6 col-md-2 espaco">
+					<img class="img-responsive center-block" src="/images/icone-mongodb.png">
+				</div>
+				<div class="col-xs-6 col-md-2 espaco">
+					<img class="img-responsive center-block" src="/images/icone-api.png">
+				</div>
+				<div class="col-xs-6 col-md-2 espaco">
+					<img class="img-responsive center-block" src="/images/icone-bootstrap.png">
+				</div>
+				<div class="col-xs-6 col-md-2 espaco">
+					<img class="img-responsive center-block" src="/images/icone-html-css-js.png">
+				</div>
+			</div>
+		</div>
 
-                                <span id="validacao"></span>
+		<div class="cadastro content" id="cadastro">
+			<h3>Cadastre-se e experimente</h3>
+			<form method="post" action="cadastrarUsuario">
+				<div class="row">
+					<div class="col-xs-12 col-md-3 espaco"></div>
+					<div class="col-xs-12 col-md-3 espaco">
+						<div class="form-group has-success">
+							<label>Nome</label>
+							<input type="text" name="nome" class="form-control" required="">
+						</div>
+						<div class="form-group has-success">
+							<label>Sobrenome</label>
+							<input type="text" name="sobrenome" class="form-control" required="">
+						</div>
+						<div class="form-group has-success">
+						<label>E-mail</label>
+							<input type="email" name="email" class="form-control" required="">
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-3 espaco">
+						<div class="form-group has-success">
+							<label>Senha</label>
+							<input type="password" name="senha" class="form-control" required="">
+						</div>
+						<div class="form-group has-success">
+							<label>Redigite a senha</label>
+							<input type="password" name="senha2" class="form-control" required="">
+						</div>
+						<div class="form-group has-success">
+							<br>
+							<input type="submit" name="enviar" class="btn btn-success" value="Cadastrar">
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-3 espaco"></div>
+				</div>
+			</form>
+		</div>
 
-                                <div class="input-group">
+		<div class="parceiro content" id="parceiro">
+			<h2>Parciros</h2>
+			<h3>Seja um parceiro iOne e contribua para um negócio de sucesso</h3>
+			<a href="#"><h3>contato@ione.com.br</h3></a>
+		</div>
+	</div>
 
+	<div class="container-fluid footer">
+		<h5>iOne Jardim Inteligente é um Projeto de Conclusão do Curso de Ciência da Computação</h5>
+		<h5>Universidade São Judas Tadeu - 2016</h5>
+	</div>
 
-                                   <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome"
-                                    ng-model="formData.nome" ng-disabled="campoNome"/>
-
-                                    <input type="text" class="form-control" name="sobrenome" id="sobrenome" placeholder="Sobrenome" ng-model="formData.sobrenome" />
-
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" ng-model="formData.email" />
-
-                                    <input type="password" class="form-control" name="novaSenha" id="novaSenha" placeholder="Senha" ng-model="formData.senha" />
-
-                                </div>
-
-                                <input type="button" name="nextUsuario" id="nextUsuario" class=" action-button" value="Proximo"/>
-                            </fieldset>
-
-
-
-                            <fieldset>
-                                <h2 class="fs-title">
-                                    Crie seu Jardim
-                                </h2>
-                                <br />
-                                <div class="col-sm-12">
-                                    <div class="col-sm-3">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" name="nomeJardim" id="nomeJardim" placeholder="Nome Jardim"
-                                            ng-model="formData.nomeJardim" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                    </div>
-                                </div>
-                                <input type="button" name="previous" class="previous action-button" value="Anterior"
-                                />
-                                <!--<input type="submit" name="submit" class="submit action-button" value="Criar"
-                                ng-click="gravaDadosUsuario()"/>
-                                -->
-                                <input type="button" name="nextJardim" id="nextJardim" class=" action-button" value="Proximo"/>
-                            </fieldset>
-                            <fieldset>
-                                <h2 class="fs-title">
-                                    Escolha suas plantas
-                                </h2>
-                                <br />
-                                <div class="input group">
-                                    <div class="col-sm-12">
-                                        <div class="col-sm-5">
-                                            <div class="list-group">
-                                                <a href="#" class="list-group-item active ajuste_select ajuste_color">
-                                            Opções
-                                          </a>
-                                                <select multiple="multiple" id='listBoxPlanta' ng-model="formData.plantas">
-                                                    <option ng-repeat="plantas in screenData.plantas" value="{{ plantas }}"
-                                                    ng-selected="plantas==formData.plantas" class="list-group-item list-group-item-action">
-                                                        {{plantas}}
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2 ajuste_botoes">
-                                            <input type='button' class="btn btn-success" id='btnRightPlanta' value='  >  '
-                                            />
-                                            <br/>
-                                            <input type='button' class="btn btn-success" id='btnLeftPlanta' value='  <  '
-                                            />
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="list-group">
-                                                <a href="#" class="list-group-item active ajuste_select ajuste_color">
-                                            Escolhido
-                                          </a>
-                                                <select multiple="multiple" id='listBoxPlantaResultado' name="listBoxPlantaResultado"
-                                                ng-model="formData.plantas">
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type="button" name="previous" class="previous action-button" value="Anterior"
-                                />
-                                <input type="button" name="next" class="next action-button" value="Proximo"
-                                />
-                            </fieldset>
-                            <fieldset>
-                                <h2 class="fs-title">
-                                    Escolha os Sensores
-                                </h2>
-                                <br />
-                                <div class="input group">
-                                    <div class="col-sm-12">
-                                        <div class="col-sm-5">
-                                            <div class="list-group">
-                                                <a href="#" class="list-group-item active ajuste_select ajuste_color">
-                                            Opções
-                                          </a>
-                                                <select multiple="multiple" id='listBoxSensores' ng-model="formData.sensores">
-                                                    <option ng-repeat="sensores in screenData.sensores" value="{{ sensores }}"
-                                                    ng-selected="sensores==formData.sensores" class="list-group-item list-group-item-action">
-                                                        {{sensores}}
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2 ajuste_botoes">
-                                            <input type='button' class="btn btn-success" id='btnRightSensores' value='  >  '
-                                            />
-                                            <br/>
-                                            <input type='button' class="btn btn-success" id='btnLeftSensores' value='  <  '
-                                            />
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="list-group">
-                                                <a href="#" class="list-group-item active ajuste_select ajuste_color">
-                                            Escolhido
-                                          </a>
-                                                <select multiple="multiple" id='listBoxSensoresResultado' name="listBoxSensoresResultado"
-                                                ng-model="formData.sensores">
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type="button" name="previous" class="previous action-button" value="Anterior"
-                                />
-                                <input type="button" name="next" class="next action-button" value="Proximo" />
-                            </fieldset>
-                            <fieldset>
-                                <h2 class="fs-title">
-                                    Escolha as Válvulas
-                                </h2>
-                                <br />
-                                <div class="input group">
-                                    <div class="col-sm-12">
-                                        <div class="col-sm-5">
-                                            <div class="list-group">
-                                                <a href="#" class="list-group-item active ajuste_select ajuste_color">
-                                            Opções
-                                          </a>
-                                                <select multiple="multiple" id='listBoxValvulas' ng-model="formData.valvulas">
-                                                    <option ng-repeat="valvulas in screenData.valvulas" value="{{ valvulas }}"
-                                                    ng-selected="valvulas==formData.valvulas" class="list-group-item list-group-item-action">
-                                                        {{valvulas}}
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2 ajuste_botoes">
-                                            <input type='button' class="btn btn-success" id='btnRightValvulas' value='  >  '
-                                            />
-                                            <br/>
-                                            <input type='button' class="btn btn-success" id='btnLeftValvulas' value='  <  '
-                                            />
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <div class="list-group">
-                                                <a href="#" class="list-group-item active ajuste_select ajuste_color">
-                                            Escolhido
-                                          </a>
-                                                <select multiple="multiple" id='listBoxValvulasResultado' name="listBoxValvulasResultado"
-                                                ng-model="formData.valvulas">
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type="button" name="previous" class="previous action-button" value="Anterior"
-                                />
-                                <input type="submit" name="submit" class="submit action-button" value="Criar"/>
-
-                            </fieldset>
-                            <fieldset>
-                                <h2 class="fs-title">
-                                    Parabéns o seu Jardim foi criado com Sucesso
-                                </h2>
-                                <hr>
-                                <br />
-                                <div class="col-sm-12">
-                                    <div class="col-sm-3">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="img_padrao_card">
-                                            <img src="trevo.png" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </section>
-            </div>
-            <!--Name: <input type="text" ng-model="formData.nome" />
-            <br />
-            Name:
-            <input type="text" ng-model="formData.sobre" />
-            <br />
-            <input type="button" class="btn btn-default" ng-click="gravaDadosSac()"
-            value="Gravar" />
-            <pre>
-                {{formData | json}}
-            </pre>
-            -->
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-                    
-        </script>
-        <script src="js/bootstrap.js">
-        </script>
-        <script src="js/funcoes.js">
-        </script>
-        <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js"
-        type="text/javascript">
-        </script>
-    </body>
-
+</body>
 </html>

@@ -12,6 +12,7 @@
     "express": "~4.13.4",
     "express-load": "^1.1.15",
     "express-session": "^1.14.1",
+    "jade": "^1.11.0",
     "mongodb": "^2.2.11",
     "mongoose": "^4.6.5",
     "nodemailer": "^2.6.4",

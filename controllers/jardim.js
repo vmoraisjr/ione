@@ -6,13 +6,24 @@ module.exports = function(app){
 
 	var JardimController = {
 
+		//metodo exibe pagina de cadastro
+		cadastro: function(req, res){
+			if(!req.session.user || !req.session.user.nome || !req.session.user.id){ //session
+				res.redirect('/');
+			}else{
+				res.render('novojardim');
+			}
+		},
+
 		//metodo cadastar novo jardim 
 		cadastrar: function(req, res){
 			var nome 			= req.body.nome,
 			serial_ione			= req.body.serial,
 			sensores_umidade	= req.body.sensores,
 			id_usuario			= req.session.user.id,
-			novoJardim 			= {nome, serial_ione, sensores_umidade, id_usuario};
+			estado				= req.body.estado,
+			cidade				= req.body.cidade,
+			novoJardim 			= {nome, serial_ione, sensores_umidade, estado, cidade, id_usuario};
 			planta  			= req.body.planta;
 
 			model = new Jardim(novoJardim);
@@ -34,14 +45,14 @@ module.exports = function(app){
 					if (err) console.log('cadastrarJardim - associar conta usuario '+err);
 				});
 				
-				res.render('home');
+				res.render('/home');
 			}
 		});
 
 		},
 
 		//metodo exibir detalhes do jardim
-		exibirJardim: function(req, res){
+		exibir: function(req, res){
 
 			var id = req.session.user.id;
 
@@ -67,7 +78,7 @@ module.exports = function(app){
 		},
 
 		//metodo alterar dados do jardim
-		alterarJardim: function(req, res){
+		editar: function(req, res){
 			var nome 			= req.body.nome,
 			serial_ione 		= req.body.serial,
 			sensores_umidade 	= req.body.sensores,
@@ -96,7 +107,7 @@ module.exports = function(app){
 								if (err) console.log('alterarJardim - associar planta '+err);
 							});
 						}	
-						res.render('home');
+						res.render('/home');
 					}
 				});
 					}
@@ -105,7 +116,7 @@ module.exports = function(app){
 		},
 
 		//metodo deletar jardim
-		deletarJardim: function(req, res){
+		deletar: function(req, res){
 
 			var id_usuario = req.session.user.id;
 
@@ -133,8 +144,8 @@ module.exports = function(app){
 		},
 
 		//metodo listar jardim
-		listarJardim: function(req, res){
-			
+		listar: function(req, res){
+			//opção de administrador do sistema - fora do escopo
 		}
 	}
 

@@ -2,15 +2,15 @@ var express     = require('express');
 var load        = require('express-load');
 var bodyParser  = require('body-parser');
 var ejs         = require('ejs');
+var jade		= require('jade');//***
 var mongoose    = require('mongoose').set('debug', true);
 var session     = require('express-session');
-
-
 
 var app = express();
 
 // view engine setup
 app.set('view engine', 'ejs');
+//app.set('view engine', 'jade');//***
 app.set('views', __dirname + '/views');
 
 app.use(express.static(__dirname + '/views'));
@@ -25,6 +25,7 @@ app.use(session({
 	secret: 'secret cat',
 	resave: false,
 	saveUninitialized: true,
+	cookie:{scure: true}
 }));
 
 //instance routes to mvc

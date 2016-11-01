@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>iOne Jardim Inteligente | Redefinir a senha</title>
+	<title>iOne JArdim Inteligente | Login</title>
 	<script type="text/javascript" src="/bootstrap/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="/js/script.js"></script>
@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 </head>
 <body>
-	<div class="container">
+	<dir class="container">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
@@ -25,38 +25,56 @@
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/">Voltar</a></li>
+						<li><a href="/#projeto">Projeto</a></li>
+						<li><a href="/#tecnologias">Tecnologias</a></li>
+						<li><a href="/#cadastro">Cadastro</a></li>
+						<li><a href="/#parceiro">Parceiro</a></li>
+						<li><a href="/login">Login</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 
-		<div class="redefinir-senha content">
-			<h3>Redefinir Senha</h3>
-			<form method="post" action="/redefinirSenhaEmail">
+		<div class="conteudo-login content">
+			<h3>Login</h3>
+			<form method="post" action="/login">
 				<div class="row">
 					<div class="col-xs-12 col-md-4 espaco"></div>
 					<div class="col-xs-12 col-md-4 espaco">
 						<dir class="form-group">
-							<label>Nova Senha</label>
+							<label>E-mail</label>
+							<input type="email" name="email" class="form-control" required="">
+						</dir>
+						<dir class="form-group">
+							<label>Senha</label>
 							<input type="password" name="senha" class="form-control" required="">
 						</dir>
 						<dir class="form-group">
-							<label>Redigite a Senha</label>
-							<input type="password" name="senha2" class="form-control" required="">
+							<a href="/esqueciSenha" id="esqueci">Esqueci a senha</a>
 						</dir>
 						<dir class="form-group">
-							<input type="hidden" name="key" class="form-control" value="<%- key %>">
-							<input type="hidden" name="id" class="form-control" value="<%- id %>">
-							<input type="submit" name="enviar" class="btn btn-success" value="Redefinir">
+							<input type="submit" name="entrar" class="btn btn-success" value="Entrar">
 							<a href="/" name="voltar" class="btn btn-default">Voltar</a>
+						</dir>
+						<dir class="form-group">
+							<%if(alert){%>
+							<div class="alert alert-dismissible alert-warning">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<p><%- msg %></p>
+							</div>
+							<%}%>
 						</dir>
 					</div>
 					<div class="col-xs-12 col-md-4 espaco"></div>
 				</div>
 			</form>
 		</div>
+	</dir>
 
+	<div class="container-fluid footer">
+		<h5>iOne Jardim Inteligente é um Projeto de Conclusão do Curso de Ciência da Computação</h5>
+		<h5>Universidade São Judas Tadeu - 2016</h5>
 	</div>
+	
 </body>
 </html>
